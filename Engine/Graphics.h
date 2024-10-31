@@ -19,7 +19,6 @@
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
 #pragma once
-#include "ChiliWin.h"
 #include <d3d11.h>
 #include <wrl.h>
 #include "ChiliException.h"
@@ -57,6 +56,22 @@ public:
 		PutPixel( x,y,{ unsigned char( r ),unsigned char( g ),unsigned char( b ) } );
 	}
 	void PutPixel( int x,int y,Color c );
+
+
+	/********************************/
+	void drawRectangle(int x, int y, int width, int height, Color c);
+	void drawRectangle(int x, int y, int width, int height, int r, int g, int b)
+	{
+		drawRectangle(x, y, width, height, { unsigned char(r),unsigned char(g),unsigned char(b) });
+	}
+	void drawRectangleCoor(int x1, int y1, int x2, int y2, Color c) {
+	
+		drawRectangle(x1, y1, x2 - x1, y2 - y1, c);
+	
+	}
+	/*  User Functions              */
+	/********************************/
+
 	~Graphics();
 private:
 	Microsoft::WRL::ComPtr<IDXGISwapChain>				pSwapChain;

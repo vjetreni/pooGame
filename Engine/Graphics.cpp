@@ -317,6 +317,32 @@ void Graphics::PutPixel( int x,int y,Color c )
 }
 
 
+void Graphics::drawRectangle(int x, int y, int width, int height, Color c)
+{
+	int x2 = x + width;
+	int y2 = y + height;
+
+	if (x2 < 0) {
+		x2 = 0;
+	}
+
+	if (x2 < x) {
+		std::swap(x, x2);
+	}
+	if (y2 < y) {
+		std::swap(y, y2);
+	}
+	
+	
+	for (int xPos = x; xPos < x2; ++xPos) {
+		for (int yPos = y; yPos < y2; ++yPos) {
+			PutPixel(xPos, yPos, c);
+		}
+	}
+
+}
+
+
 //////////////////////////////////////////////////
 //           Graphics Exception
 Graphics::Exception::Exception( HRESULT hr,const std::wstring& note,const wchar_t* file,unsigned int line )

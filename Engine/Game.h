@@ -23,6 +23,12 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Poo.h"
+#include "Dude.h"
+#include <random>
+#include "Rect.h"
+#include "Meter.h"
+#include "Lives.h"
 
 class Game
 {
@@ -35,12 +41,55 @@ private:
 	void ComposeFrame();
 	void UpdateModel();
 	/********************************/
-	/*  User Functions              */
+    /*  User Functions              */
+	void drawGameOver(int x, int y);
+	void drawTitle(int x, int y);
+
+
+	
 	/********************************/
 private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	/*
+	int x = 200;
+	int y = 200;
+
+	int width = 150;
+	int height = 150;
+
+	Color c = Colors::Green;*/
+
+	std::random_device rd;
+	std::mt19937 rng;
+	std::uniform_int_distribution<int> xDist;
+	std::uniform_int_distribution<int> yDist;
+
+	std::uniform_int_distribution<int> vDist;
+
+	static int constexpr npoos = 10;
+	Poo poos[npoos];
+
+	Dude dude;
+
+	std::uniform_int_distribution<int> rDist;
+	std::uniform_int_distribution<int> gDist;
+	std::uniform_int_distribution<int> bDist;
+
+	Rect rect;
+	Meter meter;
+	Lives lives;
+	
+	int xGameOver = 370;
+	int yGameOver = 260;
+
+	int xTitle = 310;
+	int yTitle = 225;
+
+	bool isGameOver = false;
+	bool isStarted = false;
+	
 	/********************************/
 };
