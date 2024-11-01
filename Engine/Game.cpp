@@ -56,7 +56,6 @@ void Game::Go()
 void Game::UpdateModel()
 {
 
-	/*comment added here*/
 
 	if (isStarted && (!isGameOver)) {
 
