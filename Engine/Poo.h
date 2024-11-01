@@ -8,18 +8,18 @@
 class Poo {
 
 public:
-	void Init(int in_x, int in_y, int in_vx, int in_vy);
+	void Init(float in_x, float in_y, float in_vx, float in_vy);
 	void MoveCheckBordersBounce();
 	bool TestCollision(Dude&);
 	void Draw(Graphics& gfx) const;
 	void IsFailed(Lives& lives);
 private:
-	int x;
-	int y;
+	float x;
+	float y;
 	bool isPooEaten = false;
-	static constexpr int width = 24;
-	static constexpr int height = 24;
-	int vx;
-	int vy;
+	static constexpr float width = 24.0f;
+	static constexpr float height = 24.0f;
+	float vx;
+	float vy;
 	bool lives_dec_allowed = true;
 };

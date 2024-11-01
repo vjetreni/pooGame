@@ -25,6 +25,7 @@
 #include <assert.h>
 #include <string>
 #include <array>
+#include "math.h"
 
 // Ignore the intellisense error "cannot open source file" for .shh files.
 // They will be created during the build sequence before the preprocessor runs.
@@ -238,6 +239,17 @@ Graphics::Graphics( HWNDKey& key )
 	// allocate memory for sysbuffer (16-byte aligned for faster access)
 	pSysBuffer = reinterpret_cast<Color*>( 
 		_aligned_malloc( sizeof( Color ) * Graphics::ScreenWidth * Graphics::ScreenHeight,16u ) );
+}
+
+void Graphics::drawCircle(int x, int y, int r, Color c)
+{
+	for (int i = x - r; i < x + r; i++) {
+		for (int j = y - r; j < y + r; j++) {
+			if (sqrt(pow((y - j),2) + pow((x - i),2)) <= r) {
+				PutPixel(i, j, c);
+			}
+		}
+	}
 }
 
 Graphics::~Graphics()

@@ -4,7 +4,7 @@
 #include "Colors.h" 
 #include <random>
 
-Rect::Rect(int in_x, int in_y)
+Rect::Rect(float in_x, float in_y)
 {
 	x = in_x;
 	y = in_y;
@@ -12,10 +12,10 @@ Rect::Rect(int in_x, int in_y)
 
 bool Rect::TestCollision(Dude& dude) const {
 
-	int rightRect = x + width;
-	int rightDude = dude.GetX() + dude.width;
-	int	downRect = y + height;
-	int	downDude = dude.GetY() + dude.height;
+	float rightRect = x + width;
+	float rightDude = dude.GetX() + dude.width;
+	float	downRect = y + height;
+	float	downDude = dude.GetY() + dude.height;
 
 	return (rightRect >= dude.GetX()) && (x <= rightDude) && (y <= downDude) && (downRect >= dude.GetY());
 }
@@ -24,11 +24,11 @@ bool Rect::TestCollision(Dude& dude) const {
 void Rect::Draw(Graphics& gfx) const
 {
 	
-	gfx.drawRectangle(x, y, width, height, c);
+	gfx.drawRectangle((int)x, (int)y, (int)width, (int)height, c);
 	
 }
 
-void Rect::Replace(int x_in, int y_in)
+void Rect::Replace(float x_in, float y_in)
 {
 	x = x_in;
 	y = y_in;

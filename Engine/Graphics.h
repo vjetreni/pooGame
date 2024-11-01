@@ -69,6 +69,7 @@ public:
 		drawRectangle(x1, y1, x2 - x1, y2 - y1, c);
 	
 	}
+	void drawCircle(int x, int y, int r, Color c);
 	/*  User Functions              */
 	/********************************/
 

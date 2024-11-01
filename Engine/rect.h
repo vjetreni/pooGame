@@ -7,18 +7,18 @@
 class Rect {
 
 public:
-	Rect(int x_in, int y_in);
+	Rect(float x_in, float y_in);
 	bool TestCollision(Dude& dude) const ;
 	void Draw(Graphics& gfx) const;
-	void Replace(int x_in, int y_in);
+	void Replace(float x_in, float y_in);
 	void ChangeColor(int r, int g, int b);
 	
 private:
 	
-	int x;
-	int y;
+	float x;
+	float y;
 	Color c;
-	static int constexpr width = 10;
-	static int constexpr height = 10;
+	static float constexpr width = 10.0f;
+	static float constexpr height = 10.0f;
 
 };
