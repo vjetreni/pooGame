@@ -243,9 +243,9 @@ Graphics::Graphics( HWNDKey& key )
 
 void Graphics::drawCircle(int x, int y, int r, Color c)
 {
-	for (int i = x - r; i < x + r; i++) {
-		for (int j = y - r; j < y + r; j++) {
-			if (sqrt(pow((y - j),2) + pow((x - i),2)) <= r) {
+	for (int i = x - r; i <= x + r; i++) {
+		for (int j = y - r; j <= y + r; j++) {
+			if (pow((y - j),2) + pow((x - i),2) <= pow(r,2)) {
 				PutPixel(i, j, c);
 			}
 		}
