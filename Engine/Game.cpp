@@ -57,17 +57,18 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-
+	//frame period
+	dt = frameTimer.Mark();
 
 	if (isStarted && (!isGameOver)) {
 
 		//dude
-		dude.MovePressCheck(wnd.kbd);
+		dude.MovePressCheck(wnd.kbd, dt);
 		dude.checkBorders();
 
 		//poos
 		for (int i = 0; i < npoos; i++) {
-			poos[i].MoveCheckBordersBounce();
+			poos[i].MoveCheckBordersBounce(dt);
 			poos[i].TestCollision(dude);
 			poos[i].IsFailed(lives);
 		}

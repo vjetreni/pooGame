@@ -11,7 +11,7 @@ public:
 	float GetY() const;
 	void checkBorders();
 	void Draw(Graphics& gfx) const;
-	void MovePressCheck(Keyboard& kbd);
+	void MovePressCheck(Keyboard& kbd, float dt);
 
 	static constexpr float width = 20.0f;
 	static constexpr float height = 20.0f;

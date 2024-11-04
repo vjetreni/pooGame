@@ -344,22 +344,22 @@ void Dude::Draw(Graphics& gfx) const
 	gfx.PutPixel(12 + int(x), 19 + int(y), 0, 0, 0);
 }
 
-void Dude::MovePressCheck(Keyboard& kbd)
+void Dude::MovePressCheck(Keyboard& kbd, float dt)
 {
 	if (kbd.KeyIsPressed(VK_RIGHT)) {
-		x += 3.0f;
+		x += 3.0f * dt * 60.0f;
 	}
 
 	if (kbd.KeyIsPressed(VK_LEFT)) {
-		x -= 3.0f;
+		x -= 3.0f * dt * 60.0f;
 	}
 
 	if (kbd.KeyIsPressed(VK_UP)) {
-		y -= 3.0f;
+		y -= 3.0f * dt * 60.0f;
 	}
 
 	if (kbd.KeyIsPressed(VK_DOWN)) {
-		y += 3.0f;
+		y += 3.0f * dt * 60.0f;
 	}
 }
 

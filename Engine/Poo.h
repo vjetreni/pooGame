@@ -9,7 +9,7 @@ class Poo {
 
 public:
 	void Init(float in_x, float in_y, float in_vx, float in_vy);
-	void MoveCheckBordersBounce();
+	void MoveCheckBordersBounce(float dt);
 	bool TestCollision(Dude&);
 	void Draw(Graphics& gfx) const;
 	void IsFailed(Lives& lives);

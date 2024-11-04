@@ -29,6 +29,7 @@
 #include "Rect.h"
 #include "Meter.h"
 #include "Lives.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -81,6 +82,9 @@ private:
 	Rect rect;
 	Meter meter;
 	Lives lives;
+	FrameTimer frameTimer;
+
+	float dt;
 	
 	int xGameOver = 370;
 	int yGameOver = 260;

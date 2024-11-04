@@ -10,10 +10,10 @@ void Poo::Init(float in_x, float in_y, float in_vx, float in_vy)
 	vy = in_vy;
 }
 
-void Poo::MoveCheckBordersBounce()
+void Poo::MoveCheckBordersBounce(float dt)
 {
-	x += vx;
-	y += vy;
+	x += vx * dt * 60;
+	y += vy * dt * 60;
 
 	if (x + width > (float)Graphics::ScreenWidth) {
 		x = (float)Graphics::ScreenWidth - width;
