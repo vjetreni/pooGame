@@ -13,11 +13,11 @@ Rect::Rect(float in_x, float in_y)
 bool Rect::TestCollision(Dude& dude) const {
 
 	float rightRect = x + width;
-	float rightDude = dude.GetX() + dude.width;
+	float rightDude = dude.GetPos().x + dude.width;
 	float	downRect = y + height;
-	float	downDude = dude.GetY() + dude.height;
+	float	downDude = dude.GetPos().y + dude.height;
 
-	return (rightRect >= dude.GetX()) && (x <= rightDude) && (y <= downDude) && (downRect >= dude.GetY());
+	return (rightRect >= dude.GetPos().x) && (x <= rightDude) && (y <= downDude) && (downRect >= dude.GetPos().y);
 }
 
 

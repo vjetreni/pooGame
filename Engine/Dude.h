@@ -2,13 +2,13 @@
 
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "Vec2d.h"
 
 class Dude {
 
 public:
-	Dude(float in_x, float in_y);
-	float GetX() const;
-	float GetY() const;
+	Dude(Vec2d pos_in);
+	Vec2d GetPos() const;
 	void checkBorders();
 	void Draw(Graphics& gfx) const;
 	void MovePressCheck(Keyboard& kbd, float dt);
@@ -17,6 +17,6 @@ public:
 	static constexpr float height = 20.0f;
 	
 private:
-	float x;
-	float y;
+	Vec2d pos;
 };
+

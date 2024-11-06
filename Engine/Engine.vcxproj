@@ -151,6 +151,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="rect.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Vec2d.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dude.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Poo.cpp" />
     <ClCompile Include="rect.cpp" />
+    <ClCompile Include="Vec2d.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">

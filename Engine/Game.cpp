@@ -35,13 +35,13 @@ Game::Game(MainWindow& wnd)
 	bDist(0, 1),
 	vDist(-2.0f, 2.0f),
 	rect(xDist(rng), yDist(rng)),
-	dude (0,0),
+	dude (Vec2d(0,0)),
 	meter(10,10),
 	lives(770,10,5)
 {
 
 	for (int i = 0; i < npoos; i++) {
-		poos[i].Init(xDist(rng), yDist(rng), vDist(rng), vDist(rng));
+		poos[i].Init(Vec2d(xDist(rng), yDist(rng)), Vec2d(vDist(rng), vDist(rng)));
 		//poos[i].Init((xDist(rng)), (yDist(rng)), 0.5f, 0.5f);
 	}
 }
