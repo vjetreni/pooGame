@@ -351,20 +351,48 @@ void Dude::Draw(Graphics& gfx) const
 
 void Dude::MovePressCheck(Keyboard& kbd, float dt)
 {
+	Vec2d vel(0.0f, 0.0f);
 	if (kbd.KeyIsPressed(VK_RIGHT)) {
-		pos.x += 3.0f * dt * 60.0f;
+		vel.x += 1.0f;
 	}
 
 	if (kbd.KeyIsPressed(VK_LEFT)) {
-		pos.x -= 3.0f * dt * 60.0f;
+		vel.x -= 1.0f;
 	}
 
 	if (kbd.KeyIsPressed(VK_UP)) {
-		pos.y -= 3.0f * dt * 60.0f;
+		vel.y -= 1.0f;
 	}
 
 	if (kbd.KeyIsPressed(VK_DOWN)) {
-		pos.y += 3.0f * dt * 60.0f;
+		vel.y += 1.0f;
+	}
+	pos += vel.GetNormalized()* 3 * dt * 60;
+}
+
+void Dude::MoveClickCheck(Mouse& mouse, float dt)
+{
+	static Vec2d sub;
+	static Vec2d subNorm;
+	static float subLen;
+
+	if (mouse.LeftIsPressed()) {
+
+		direction.x = (float)mouse.GetPosX();
+		direction.y = (float)mouse.GetPosY();
+
+		sub = direction - pos;
+		subLen = sub.GetLength();
+		subNorm = sub.GetNormalized() * 3;
+	}
+
+	if (subLen > 1.0f * dt * 60 * 3) {
+		pos += subNorm * dt * 60;
+		subLen -= 1.0f * dt * 60 * 3;
+	}
+	else {
+		pos += subNorm * subLen * dt * 60;
+		subLen = 0.0f;
 	}
 }
 

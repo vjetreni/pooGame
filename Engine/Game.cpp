@@ -38,7 +38,7 @@ Game::Game(MainWindow& wnd)
 	dude (Vec2d(0,0)),
 	meter(Vec2d(10,10)),
 	lives(Vec2d(770,10),5)
-{
+{ 
 
 	for (int i = 0; i < npoos; i++) {
 		poos[i].Init(Vec2d(xDist(rng), yDist(rng)), Vec2d(vDist(rng), vDist(rng)));
@@ -58,12 +58,13 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	//frame period
-	dt = frameTimer.Mark();
+	float dt = frameTimer.Mark();
 
 	if (isStarted && (!isGameOver)) {
 
 		//dude
-		dude.MovePressCheck(wnd.kbd, dt);
+		//dude.MovePressCheck(wnd.kbd, dt);
+		dude.MoveClickCheck(wnd.mouse, dt);
 		dude.checkBorders();
 
 		//poos

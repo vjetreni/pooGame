@@ -79,12 +79,11 @@ private:
 	std::uniform_int_distribution<int> gDist;
 	std::uniform_int_distribution<int> bDist;
 
+    FrameTimer frameTimer;
 	Rect rect;
 	Meter meter;
 	Lives lives;
-	FrameTimer frameTimer;
-
-	float dt;
+	
 	
 	int xGameOver = 370;
 	int yGameOver = 260;

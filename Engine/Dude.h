@@ -2,6 +2,7 @@
 
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 #include "Vec2d.h"
 
 class Dude {
@@ -12,11 +13,13 @@ public:
 	void checkBorders();
 	void Draw(Graphics& gfx) const;
 	void MovePressCheck(Keyboard& kbd, float dt);
+	void MoveClickCheck(Mouse& mouse, float dt);
 
 	static constexpr float width = 20.0f;
 	static constexpr float height = 20.0f;
 	
 private:
 	Vec2d pos;
+	Vec2d direction = {0,0};
 };
 

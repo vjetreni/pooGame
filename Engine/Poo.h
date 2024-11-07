@@ -15,8 +15,8 @@ public:
 	void Draw(Graphics& gfx) const;
 	void IsFailed(Lives& lives);
 private:
-	Vec2d pos;
-	Vec2d vel;
+	Vec2d pos = {0 , 0};
+	Vec2d vel = { 0 , 0 };
 	bool isPooEaten = false;
 	static constexpr float width = 24.0f;
 	static constexpr float height = 24.0f;
