@@ -1,16 +1,17 @@
 #include "Lives.h"
+#include "Vec2d.h"
 
-Lives::Lives(int x_in, int y_in, int num_in)
+Lives::Lives(Vec2d pos_in, int num_in)
+	:
+	pos(pos_in),
+	num(num_in)
 {
-	x = x_in;
-	y = y_in;
-	num = num_in;
 }
 
 void Lives::Draw(Graphics& gfx) const
 {
 	for (int i = 0; i < num; i++) {
-		gfx.drawRectangle(x - i * (dimension + distance), y, dimension, dimension, c);
+		gfx.drawRectangle(int(pos.x) - i * (dimension + distance), int(pos.y), dimension, dimension, c);
 	}
 }
 

@@ -1,14 +1,15 @@
 #include "Meter.h"
+#include "Vec2d.h"
 
-Meter::Meter(int x_in, int y_in)
+Meter::Meter(Vec2d pos_in)
+	:
+	pos(pos_in)
 {
-	x = x_in;
-	y = y_in;
 }
 
 void Meter::Draw(Graphics& gfx) const
 {
-	gfx.drawRectangle(x, y, width, height, c);
+	gfx.drawRectangle(int(pos.x), int(pos.y), width, height, c);
 }
 
 void Meter::IncWidth()

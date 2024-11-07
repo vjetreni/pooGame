@@ -7,16 +7,15 @@
 class Rect {
 
 public:
-	Rect(float x_in, float y_in);
+	Rect(Vec2d pos_in);
 	bool TestCollision(Dude& dude) const ;
 	void Draw(Graphics& gfx) const;
-	void Replace(float x_in, float y_in);
+	void Replace(Vec2d pos_in);
 	void ChangeColor(int r, int g, int b);
 	
 private:
 	
-	float x;
-	float y;
+	Vec2d pos;
 	Color c;
 	static float constexpr width = 10.0f;
 	static float constexpr height = 10.0f;

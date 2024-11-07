@@ -4,34 +4,33 @@
 #include "Colors.h" 
 #include <random>
 
-Rect::Rect(float in_x, float in_y)
+Rect::Rect(Vec2d pos_in)
+	:
+	pos(pos_in)
 {
-	x = in_x;
-	y = in_y;
 }
 
 bool Rect::TestCollision(Dude& dude) const {
 
-	float rightRect = x + width;
+	float rightRect = pos.x + width;
 	float rightDude = dude.GetPos().x + dude.width;
-	float	downRect = y + height;
+	float	downRect = pos.y + height;
 	float	downDude = dude.GetPos().y + dude.height;
 
-	return (rightRect >= dude.GetPos().x) && (x <= rightDude) && (y <= downDude) && (downRect >= dude.GetPos().y);
+	return (rightRect >= dude.GetPos().x) && (pos.x <= rightDude) && (pos.y <= downDude) && (downRect >= dude.GetPos().y);
 }
 
 
 void Rect::Draw(Graphics& gfx) const
 {
 	
-	gfx.drawRectangle((int)x, (int)y, (int)width, (int)height, c);
+	gfx.drawRectangle((int)pos.x, (int)pos.y, (int)width, (int)height, c);
 	
 }
 
-void Rect::Replace(float x_in, float y_in)
+void Rect::Replace(Vec2d pos_in)
 {
-	x = x_in;
-	y = y_in;
+	pos = pos_in;
 }
 
 void Rect::ChangeColor(int r, int g, int b)

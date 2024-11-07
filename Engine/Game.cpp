@@ -34,10 +34,10 @@ Game::Game(MainWindow& wnd)
 	gDist(0, 1),
 	bDist(0, 1),
 	vDist(-2.0f, 2.0f),
-	rect(xDist(rng), yDist(rng)),
+	rect(Vec2d(xDist(rng), yDist(rng))),
 	dude (Vec2d(0,0)),
-	meter(10,10),
-	lives(770,10,5)
+	meter(Vec2d(10,10)),
+	lives(Vec2d(770,10),5)
 {
 
 	for (int i = 0; i < npoos; i++) {
@@ -75,7 +75,7 @@ void Game::UpdateModel()
 
 		//rect
 		if (rect.TestCollision(dude)) {
-			rect.Replace(xDist(rng), yDist(rng));
+			rect.Replace(Vec2d(xDist(rng), yDist(rng)));
 			//meter
 			meter.IncWidth();
 		}
