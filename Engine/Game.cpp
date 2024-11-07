@@ -54,7 +54,6 @@ void Game::Go()
 	gfx.EndFrame();
 }
 
-//proba nove grane, ova ce da bude vezana za koriscenje klika misa
 
 void Game::UpdateModel()
 {
